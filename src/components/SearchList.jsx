@@ -67,9 +67,11 @@ function SearchResults({resultsArray}) {
                         })
                     }}>
                         <View style={styles.resultCard}>
-                            <Text style={[styles.result, styles.resultName]}>{result.name}</Text>
-                            <Text style={[styles.result, styles.resultSection]}>Section {result.section}</Text>
-                            <Text style={[styles.result, styles.resultDescription]}>{result.description}</Text>
+                            <View style={styles.resultCommand}>
+                                <Text style={[styles.result, styles.resultName]}>{result.name}</Text>
+                                <Text style={[styles.result, styles.resultSection]}>{result.section}</Text>
+                            </View>
+                            <Text numberOfLines={2} style={[styles.result, styles.resultDescription]}>{result.description}</Text>
                         </View>
                     </TouchableOpacity>
                 );
@@ -87,16 +89,31 @@ const styles = StyleSheet.create({
     },
     resultCard: {
         flex: 1,
+        flexDirection: 'row',
         marginLeft: 16,
         marginRight: 16,
+        marginBottom: 8,
         padding: 8,
-        borderBottomWidth: 1,
+        borderRadius: 8,
         borderColor: "#000",
         backgroundColor: "#fff",
         color: "#000",
     },
     result: {
         color: "#000",
+    },
+    resultCommand: {
+        width: "35%",
+    },
+    resultName: {
+        fontFamily: "monospace",
+    },
+    resultSection: {
+        color: "#888",
+        fontFamily: "monospace",
+    },
+    resultDescription: {
+        width: "65%"
     }
   });
   
